@@ -71,4 +71,11 @@ public class MaxHeap {
         }
     }
 
+    public int getSize() {
+        return size;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
 }
