@@ -14,7 +14,7 @@ public class QuickSort {
         int i = low -1;  //i的起始位置
         int x = A[hight];
         for(int j = low ; j < hight ; j++){
-            if(A[j] <= x){ //判断条件
+            if(A[j] >= x){ //判断条件
                 i = i+1;
                 int tmp = A[i];
                 A[i] = A[j];
