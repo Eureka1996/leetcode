@@ -12,7 +12,7 @@ public class L116_Connect {
         }
         LinkedList<Node> query = new LinkedList<Node>();
         query.add(root);
-        int levelCount = 0;
+        int levelCount = 1;
         while(!query.isEmpty()){
             int levelCountTmp = 0;
             Node poll = query.poll();
