@@ -13,6 +13,8 @@ public class Test {
         stack.add(2);
         stack.addFirst(3);
         stack.add(4);
+        stack.push(5);
+        System.out.println("poll:"+stack.pollFirst());
         System.out.println("last:"+stack.pollLast());
         for(Integer item:stack){
             System.out.println(item);
