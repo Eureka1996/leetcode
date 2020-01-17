@@ -26,7 +26,7 @@ public class L896_IsMonotonic {
                if(pre > A[i]){
                    result = false;
                    return result;
-               }
+           }
                pre = A[i];
             }else{
                 if(pre < A[i]){
