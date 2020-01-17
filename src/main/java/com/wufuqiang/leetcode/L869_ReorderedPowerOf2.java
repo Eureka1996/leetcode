@@ -6,9 +6,10 @@ public class L869_ReorderedPowerOf2 {
 
     }
 
-    public int[] count(int N){
-        while(N>0){
-            int mod = N%10;
-        }
-    }
+//    public int[] count(int N){
+//        while(N>0){
+//            int mod = N%10;
+//        }
+//        return null;
+//    }
 }
