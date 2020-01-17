@@ -42,7 +42,6 @@ class MinStack {
             return data.peek();
         }
         throw new RuntimeException("栈为空");
-
     }
 
     public int getMin() {
