@@ -1,4 +1,4 @@
-package com.wufuqiang;
+package com.wufuqiang.leetcode;
 
 /**
  * @ author wufuqiang
