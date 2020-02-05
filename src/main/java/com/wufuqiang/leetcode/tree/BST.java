@@ -39,4 +39,33 @@ public class BST {
         return root;
     }
 
+    public static TreeNode min(TreeNode root){
+        while(root.left != null){
+            root = root.left;
+        }
+        return root;
+    }
+
+    public static TreeNode max(TreeNode root){
+        while(root.right != null){
+            root = root.right;
+        }
+        return root;
+    }
+
+    public static TreeNode successor(TreeNode root){
+        if(root == null){
+            return null;
+        }
+        if(root.right != null){
+            return min(root.right);
+        }
+        TreeNode tmp = root.parent;
+        while(tmp != null && tmp.right == root){
+            root = tmp;
+            tmp = tmp.parent;
+        }
+        return tmp;
+    }
+
 }
