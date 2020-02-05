@@ -41,8 +41,12 @@ public class AVL {
      * @return
      */
     private AVLNode<Integer> doubleRotateWithLeft(AVLNode<Integer> node){
-        node.left = singleRotateLeft(node.left);
-        return singleRotateRight(node);
+        node.left = singleRotateRight(node.left);
+        return singleRotateLeft(node);
+    }
+
+    private AVLNode<Integer> doubleRotateWithRight(AVLNode<Integer> node){
+        node.right =
     }
 
 
