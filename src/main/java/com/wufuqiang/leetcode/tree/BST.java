@@ -68,4 +68,35 @@ public class BST {
         return tmp;
     }
 
+    public static TreeNode remove(TreeNode root,int val){
+        TreeNode searched = search(root, val);
+        if(searched != null){
+            boolean leftIsNull = searched.left == null;
+            boolean rightIsNull = searched.right == null;
+            if(leftIsNull || rightIsNull){
+                TreeNode tmp = null;
+                if(!leftIsNull){
+                    tmp = searched.left;
+                }
+                if(!rightIsNull){
+                    tmp = searched.right;
+                }
+                if(searched.parent.left == searched){
+                    searched.parent.left = tmp;
+                }else{
+                    searched.parent.right = tmp;
+                }
+            }else{
+                TreeNode succ = successor(searched);
+                searched.val = succ.val;
+                if(succ.parent.left == succ){
+                    succ.parent.left = succ.right;
+                }else{
+                    succ.parent.right = succ.right;
+                }
+            }
+        }
+        return searched;
+    }
+
 }
