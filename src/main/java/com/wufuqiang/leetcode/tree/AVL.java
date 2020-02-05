@@ -21,5 +21,21 @@ public class AVL {
         return left;
     }
 
+    /**
+     * 右右单旋
+     * @param node
+     * @return
+     */
+    private AVLNode<Integer> singleRotateRight(AVLNode<Integer> node){
+        AVLNode<Integer> right = node.right;
+        node.right = right.left;
+        right.left = right;
+        node.height = Math.max(node.left.height,node.right.height)+1;
+        right.height = Math.max(right.left.height,right.right.height)+1;
+        return right;
+    }
+
+
+
 
 }
