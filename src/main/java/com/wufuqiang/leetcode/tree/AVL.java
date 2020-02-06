@@ -14,6 +14,15 @@ public class AVL {
         return 0;
     }
 
+    private AVLNode<Integer> findMin(AVLNode<Integer> root){
+        if(root == null) return null;
+        while(root.left != null){
+            root = root.left;
+        }
+        return root;
+    }
+
+
     /**
      * 左左单旋
      * @param node
@@ -87,6 +96,47 @@ public class AVL {
             }
         }
         root.height = Math.max(getHeight(root.left),getHeight(root.right))+1;
+        return root;
+    }
+
+    public AVLNode<Integer> remove(AVLNode<Integer> root,int data){
+        if(root == null){
+            return null;
+        }
+        int result = root.data.compareTo(data);
+        if(result < 0){
+            root.right = remove(root.right,data);
+            if(getHeight(root.left) - getHeight(root.right) == 2){
+                AVLNode<Integer> currentNode = root.left;
+                if(getHeight(currentNode.right) > getHeight(currentNode.left)){
+                    root = singleRotateRight(root);
+                }else{
+                    root = doubleRotateWithRight(root);
+                }
+            }
+        }else if(result > 0){
+            root.left = remove(root.left,data);
+            if(getHeight(root.right)-getHeight(root.left) == 2){
+                AVLNode<Integer> currentNode = root.right;
+                if(getHeight(currentNode.left)>getHeight(currentNode.right)){
+                    root = singleRotateLeft(root);
+                }else{
+                    root = doubleRotateWithLeft(root);
+                }
+            }
+        }
+        //要删除的节点有两个孩子
+        else if(root.right != null && root.left != null){
+            root.data = findMin(root.right).data;
+            root.right = remove(root.right,root.data);
+        }
+        //要删除的节点只有一个孩子或是叶子节点
+        else{
+            root = root.left != null ? root.left:root.right;
+        }
+        //更新高度
+        if(root != null)
+            root.height = Math.max(getHeight(root.left),getHeight(root.right))+1;
         return root;
     }
 }
