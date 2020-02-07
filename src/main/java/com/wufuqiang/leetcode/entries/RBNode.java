@@ -13,4 +13,19 @@ public class RBNode<T> {
     private RBNode<T> left;
     private RBNode<T> right;
 
+    public RBNode(){}
+    public RBNode(T value){this.value=value;}
+    public RBNode(T value,boolean isRed){this.value=value;this.isRed = isRed;}
+
+    public void makeBlack(){
+        this.isRed = false;
+    }
+    public void makeRed(){
+        this.isRed = true;
+    }
+
+    public boolean isBlack(){
+        return !isRed;
+    }
+
 }
