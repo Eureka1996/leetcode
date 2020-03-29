@@ -1,6 +1,7 @@
 package com.wufuqiang.baidu;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class GetNum2020032901 {
@@ -9,31 +10,47 @@ public class GetNum2020032901 {
 		Scanner scanner = new Scanner(System.in);
 		int n = scanner.nextInt();
 		int m = scanner.nextInt();
-		int[] nNum = new int[n];
-		int[] mNum = new int[n];
-		for(int i = 0 ;i < n ;i++){
-			nNum[i] = scanner.nextInt();
+		Node[] nodes = new Node[n];
+		for(int i =0 ;i<n;i++){
+			Node node = new Node();
+			node.a = scanner.nextInt();
+			nodes[i] = node;
 		}
-		for(int i = 0 ;i<n ;i++){
-			mNum[i] = scanner.nextInt();
+		for(Node node:nodes){
+			node.b = scanner.nextInt();
 		}
-		if(m>1){
-			for(int i = 1 ; i < m;i++){
-				mNum[i] = mNum[i] + mNum[i-1];
+		Arrays.sort(nodes, new Comparator<Node>() {
+			@Override
+			public int compare(Node o1, Node o2) {
+				if(o1.a>o2.a){
+					return -1;
+				}else if(o1.a < o2.a){
+					return 1;
+				}else{
+					return 0;
+				}
 			}
-		}
-		Arrays.sort(nNum);
-		for(int i:nNum){
-			System.out.println(i);
-		}
-		int count = 0;
-		for(int i = n-1 ;i>=n-m;i--){
-			count+=nNum[i];
-		}
-		for(int i = 0 ; i < m-1;i++){
-			count -= mNum[i];
-		}
-		System.out.println(count);
+		});
 
+		int[][] dp = new int[n+1][m+1];
+		for(int i = 0 ;i<n;i++){
+			for(int j = 1;j<=m;j++){
+				dp[i+1][j] = Math.max(dp[i][j],dp[i][j-1]+nodes[i].a-nodes[i].b*(j-1));
+				System.out.print(String.format("%d(%d,(%d+%d-%d=%d))\t",dp[i+1][j],dp[i][j],dp[i][j-1],nodes[i].a,nodes[i].b*(j-1),dp[i][j-1]+nodes[i].a-nodes[i].b*(j-1)));
+
+			}
+			System.out.println();
+		}
+//		for(int i = 0 ; i <= n ;i++){
+//			for(int j = 0;j <=m;j++){
+//				System.out.print(dp[i][j]+"\t");
+//			}
+//			System.out.println();
+//		}
 	}
+}
+
+class Node{
+	public int a;
+	public int b;
 }
