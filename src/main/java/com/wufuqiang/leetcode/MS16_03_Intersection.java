@@ -4,8 +4,8 @@ import jdk.nashorn.internal.ir.CallNode;
 
 public class MS16_03_Intersection {
     public static void main(String[] args) {
-        double [] result = intersection(new int[]{0,0},new int[]{0,1},new int[]{1,0},new int[]{1,1});
-        System.out.println(result[0]+","+result[1]);
+        double [] result = intersection(new int[]{0,0},new int[]{1,-1},new int[]{0,0},new int[]{-1,1});
+//        System.out.println(result[0]+","+result[1]);
     }
     public static double[] intersection(int[] start1, int[] end1, int[] start2, int[] end2) {
         LineSegament line1 = new LineSegament(start1[0],start1[1],end1[0],end1[1]);
@@ -41,7 +41,7 @@ class LineSegament{
             tmp = y1;
             y1 = y2;
             y2 = tmp;
-        }else if(x1 == x1){
+        }else if(x1 == x2){
             if(y1 > y2){
                 double tmp = y1;
                 y1 = y2;
@@ -64,12 +64,12 @@ class LineSegament{
         double y = 0 ;
         boolean isInside = true;
         if(this.flag == true && line.flag == true){
-            if(this.x1 == this.x2){
+            if(this.x1 == line.x1){
                 if(this.y2 < line.y1 || line.y2 < this.y1 ){
                     isInside = false;
                 }else{
                     x = this.x1;
-                    if(this.y1 >= line.y2){
+                    if(this.y1 >= line.y1){
                         y = this.y1;
                     }else{
                         y = line.y1;
@@ -92,7 +92,6 @@ class LineSegament{
             }
         }else{
             if(this.k == line.k){
-
                 if(this.x1*line.k+line.b == this.y1){
                     if(this.inside(line.x1,line.y1)){
                         x = line.x1;
@@ -123,6 +122,6 @@ class LineSegament{
     }
 
     public boolean inside(double x,double y){
-        return x>= x1 && x<=x2 && y>=y1 && y<= y2;
+        return x>= x1 && x<=x2 ;
     }
 }
