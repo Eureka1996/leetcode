@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * 迭代，中序遍历
+ */
 public class L144_PreorderTraversal {
 	public List<Integer> preorderTraversal(TreeNode root) {
 		List<Integer> result = new ArrayList<>();
