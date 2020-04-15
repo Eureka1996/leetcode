@@ -6,7 +6,7 @@ import java.util.List;
 public class L22_GenerateParenthesis {
     public static void main(String[] args) {
         L22_GenerateParenthesis l22 = new L22_GenerateParenthesis();
-        List<String> result = l22.generateParenthesis(10);
+        List<String> result = l22.generateParenthesis(20);
         for(String str : result){
             System.out.println(str);
         }
