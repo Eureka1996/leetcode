@@ -26,7 +26,7 @@ public class L1079_NumTilePossibilities {
 
     public static void main(String[] args) {
         L1079_NumTilePossibilities l1079 = new L1079_NumTilePossibilities();
-        l1079.numTilePossibilities("AAABBDDDFFC");
+        l1079.numTilePossibilities("AAABBDDFFC");
         System.out.println();
     }
 }
