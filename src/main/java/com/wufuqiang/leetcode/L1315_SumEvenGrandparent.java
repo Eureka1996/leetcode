@@ -1,7 +1,7 @@
 package com.wufuqiang.leetcode;
 
 import com.wufuqiang.leetcode.entries.TreeNode;
-//祖父节点有偶数
+//祖父节点为偶数
 public class L1315_SumEvenGrandparent {
 	int result = 0;
 	public int sumEvenGrandparent(TreeNode root) {
