@@ -1,5 +1,6 @@
 package com.wufuqiang.leetcode;
 
+//约瑟夫环 报数 圆圈中的最后一个数
 public class MS62_LastRemaining {
 	public static void main(String[] args) {
 		MS62_LastRemaining test = new MS62_LastRemaining();
@@ -35,6 +36,7 @@ public class MS62_LastRemaining {
 	}
 
 	public int lastRemaining2(int n, int m) {
+		//最后一个数的下标为0
 		int ans = 0;
 		for(int i = 2 ;i<=m;i++){
 			ans = (ans+m)%i;
