@@ -1,5 +1,5 @@
 package com.wufuqiang.leetcode;
-
+////求不重复的两个数，与MS17.19相似
 public class L260_SingleNumber {
 	public int[] singleNumber(int[] nums) {
 		int bitmask = 0;
