@@ -1,5 +1,5 @@
 package com.wufuqiang.leetcode;
-
+//快速幂
 public class L50_MyPow {
     public double fastPow(double x , long n){
         if(n == 0){
