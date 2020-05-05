@@ -1,5 +1,5 @@
 package com.wufuqiang.alibaba;
-
+//快速幂取模
 public class SelectTeam {
 	public static void main(String[] args) {
 		int N = 1000000000;
