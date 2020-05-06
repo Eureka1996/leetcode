@@ -2,7 +2,7 @@ package com.wufuqiang.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//螺旋矩阵
 public class L54_SpiralOrder {
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> result = new ArrayList<>();
@@ -10,7 +10,7 @@ public class L54_SpiralOrder {
             return result;
         }
         int row = matrix.length;
-        int column = matrix.length;
+        int column = matrix[0].length;
         boolean visited[][] = new boolean[row][column];
         int dr[] = new int[]{0,1,0,-1};
         int dc[] = new int[]{1,0,-1,0};
