@@ -21,22 +21,23 @@ public class L93_RestoreIpAddresses {
     }
 
     public void backtrack(List<String> res,String[] path,int pathIndex,int beginIndexx,int endIndex,String s){
+        //判断是否已经处理完s中的所有字符
         if(endIndex==s.length()-1 && pathIndex == 4){
             res.add(String.join(".",path));
             return;
-        }else if(pathIndex == 4) return;
+        }
+        //处理出4个字段，但s还没有处理完，舍弃
+        else if(pathIndex == 4) return;
 
 
         for(int i = endIndex+1;i<s.length() && i<= endIndex+3;i++){
-            if(isBeginZero(s,endIndex+1,i)) continue;
+            //舍弃以0开关的
+            if(isBeginZero(s,endIndex+1,i)) break;
             int value = str2Int(s,endIndex+1,i) ;
             if(value > 255) continue;
             path[pathIndex] = String.valueOf(value);
             backtrack(res,path,pathIndex+1,endIndex+1,i,s);
         }
-
-
-
     }
 
     public boolean isBeginZero(String s, int beginIndex,int endIndex){
