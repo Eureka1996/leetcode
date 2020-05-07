@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class L380_RandomizedSet {
 }
-
+//常数时间插入、删除和获取随机元素
 class RandomizedSet {
 
 	private HashMap<Integer,Integer> value2Index;
@@ -30,14 +30,18 @@ class RandomizedSet {
 
 	/** Removes a value from the set. Returns true if the set contained the specified element. */
 	public boolean remove(int val) {
-
+		//删除HashMap中的值
 		Integer index = value2Index.remove(val);
+		//如果没有包含val值，返回false
 		if(index == null) return false;
+		//ArrayList长度
 		int count = value.size()-1;
-		int lastValueEle = value.remove((int)index);
-		if(index != count){
-			value.set(index,lastValueEle);
-			value2Index.put(lastValueEle,index);
+		if(count == index){
+			value.remove(count);
+		}else{
+			int lastValue = value.remove(count);
+			value.set(index,lastValue);
+			value2Index.put(lastValue,index);
 		}
 		return true;
 
