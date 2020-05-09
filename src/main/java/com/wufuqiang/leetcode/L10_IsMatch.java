@@ -8,7 +8,7 @@ public class L10_IsMatch {
         boolean firstMatch = !s.isEmpty() &&
                 (s.charAt(0) == p.charAt(0) || p.charAt(0) == '.');
         //第二个字符为*
-        if(s.length() >= 2 && p.charAt(1) == '*'){
+        if(p.length() >= 2 && p.charAt(1) == '*'){
             return
                     //p中的前两个字符为空
                     isMatch(s,p.substring(2)) ||
