@@ -16,9 +16,7 @@ public class Timu1 {
 			if(arr[index]>=max){
 				max-=1;
 				arr[index]=arr[max];
-				continue;
-			}
-			if(index != arr[index]){
+			}else if(index != arr[index]){
 				tmp = arr[arr[index]];
 				arr[arr[index]] = arr[index];
 				arr[index] = tmp;
@@ -30,7 +28,7 @@ public class Timu1 {
 	}
 
 	public static void main(String[] args) {
-		int[] arr = {4,2,1,0};
+		int[] arr = {30,92,71,40};
 		int minNum = findMinNum(arr);
 		System.out.println(minNum);
 	}
