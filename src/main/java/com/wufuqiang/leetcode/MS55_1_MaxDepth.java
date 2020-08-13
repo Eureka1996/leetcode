@@ -1,7 +1,7 @@
 package com.wufuqiang.leetcode;
 
 import com.wufuqiang.leetcode.entries.TreeNode;
-
+//二叉对的深度、高度
 public class MS55_1_MaxDepth {
 	public int maxDepth(TreeNode root) {
 		int left = 1;
