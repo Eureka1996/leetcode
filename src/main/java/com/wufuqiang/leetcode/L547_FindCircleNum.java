@@ -1,12 +1,15 @@
 package com.wufuqiang.leetcode;
 
-//朋友圈
+/**
+ * 朋友圈
+ */
 public class L547_FindCircleNum {
 	private int[][] directions = {{-1,0},{1,0},{0,1},{0,-1}};
 	public int findCircleNum(int[][] M) {
 		int result = 0;
 		if(M==null || M.length == 0) return result;
 		int n = M.length;
+		//最多就n个人，visited如果不为0，则表示他已经属于某个朋友圈
 		int[] visited = new int[n];
 		for(int i = 0;i<n;i++){
 			if(visited[i] == 0){
