@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * 快乐数
  * 我们猜测会有以下三种可能。
  *
  * 最终会得到 1。
