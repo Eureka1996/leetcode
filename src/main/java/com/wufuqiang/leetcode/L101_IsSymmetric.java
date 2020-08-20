@@ -8,6 +8,12 @@ public class L101_IsSymmetric {
         return isMirror(root.left,root.right);
     }
 
+    /**
+     * 判断两棵树是否是镜像
+     * @param left
+     * @param right
+     * @return
+     */
     public boolean isMirror(TreeNode left,TreeNode right){
         if(left == null && right == null) return true;
         if(left == null || right == null) return false;
