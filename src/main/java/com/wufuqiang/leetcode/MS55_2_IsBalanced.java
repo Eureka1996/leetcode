@@ -56,13 +56,18 @@ public class MS55_2_IsBalanced {
 
     public int depth(TreeNode root){
         if(root == null){
+            //此种情况，高度为0
             return 0;
         }
+        //左子树的高度
         int leftDepth = depth(root.left);
+        //左子树的高度
         int rightDepth = depth(root.right);
+        //左右子树如果有一个返回-1，则返回-1，-1表示不平衡
         if(leftDepth == -1 || rightDepth == -1){
             return -1;
         }
+        //判断左右子树是否平衡，如果不平衡就返回-1，如果平衡就返回树的高度
         if(Math.abs(leftDepth-rightDepth) > 1){
             return -1;
         }else{
