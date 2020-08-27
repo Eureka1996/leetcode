@@ -23,6 +23,13 @@ public class MS16_25_LRUCache {
 
 /**
  * LRU
+ * 包含的属性
+ * 1、容量capacity，用于记录总容量
+ * 2、大小size，用于记录现在使用的容量
+ * 3、两个哨兵节点，双向链表的头尾节点，
+ *    3.1 DoubleLinkNode head
+ *    3.2 DoubleLinkNode tail
+ * 4、HashMap<Integer,DoubleLinkNode> map，记录key、key对应的链表节点
  */
 class LRUCache {
 
@@ -35,8 +42,10 @@ class LRUCache {
 	public LRUCache(int capacity) {
 		this.capacity = capacity;
 		this.size = 0;
+		//实例化head、tail节点
 		this.head = new DoubleLinkNode();
 		this.tail = new DoubleLinkNode();
+		//将head和tail连接起来
 		this.head.next = tail;
 		this.tail.prev = this.head;
 		map = new HashMap<>(capacity);
@@ -56,6 +65,13 @@ class LRUCache {
 		}
 	}
 
+	/**
+	 * 有两种情况
+	 * 1、key已经存在
+	 * 2、key不存在
+	 * @param key
+	 * @param value
+	 */
 	public void put(int key, int value) {
 		if(map.containsKey(key)){
 			//put的key已经存在，需要修改值，并将其放入到链表头部
@@ -84,6 +100,7 @@ class LRUCache {
 	}
 
 	public void removeNode(DoubleLinkNode node){
+		//前一个节点的next指向，现节点的next
 		node.prev.next = node.next;
 		node.next.prev = node.prev;
 		this.size-=1;
