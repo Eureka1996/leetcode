@@ -1,6 +1,5 @@
 package com.wufuqiang.leetcode;
 
-import jdk.nashorn.internal.ir.CallNode;
 
 public class MS16_03_Intersection {
     public static void main(String[] args) {
