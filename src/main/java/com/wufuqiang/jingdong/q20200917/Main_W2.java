@@ -14,14 +14,14 @@ public class Main_W2 {
 	private static int[][] dir = {{1,0},{-1,0},{0,1},{0,-1}};
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		T = Integer.parseInt(sc.nextLine());
+		T = sc.nextInt();
 		String line = "";
 		while(T>0){
-			String nm[] = sc.nextLine().split(" ");
-			n = Integer.parseInt(nm[0]);
-			m = Integer.parseInt(nm[1]);
+//			String nm[] = sc.nextLine().split(" ");
+			n = sc.nextInt();//Integer.parseInt(nm[0]);
+			m = sc.nextInt();//Integer.parseInt(nm[1]);
+			sc.nextLine();
 			int[][] grid = new int[n][m];
-//			sc.nextLine();
 			for(int i = 0;i<n;i++){
 				line = sc.nextLine();
 				for(int j = 0;j<m;j++){
@@ -29,7 +29,6 @@ public class Main_W2 {
 					if(c == 'S'){
 						sx = i;
 						sy = j;
-//						grid[i][j] = 5;
 					}else if(c == 'E'){
 						ex = i;
 						ey = j;
@@ -73,8 +72,6 @@ public class Main_W2 {
 			}
 			T--;
 		}
-
-
 		sc.close();
 	}
 }
