@@ -29,11 +29,10 @@ public class Main_W2 {
 					if(c == 'S'){
 						sx = i;
 						sy = j;
-						grid[i][j] = 5;
+//						grid[i][j] = 5;
 					}else if(c == 'E'){
 						ex = i;
 						ey = j;
-						grid[i][j] = -1;
 					}else if(c == '#'){
 						grid[i][j] = 1;
 					}
@@ -47,23 +46,22 @@ public class Main_W2 {
 				q.offerLast(sx);
 				q.offerLast(sy);
 				boolean flag = false;
+
 				while(!q.isEmpty()){
 					int ox = q.pollFirst();
 					int oy = q.pollFirst();
+					if(ox == ex && oy == ey){
+						flag = true;
+						break;
+					}
 					for(int[] d:dir){
 						int nx = ox + d[0];
 						int ny = oy + d[1];
-						if(nx == ex && ny == ey){
-							flag = true;
-							break;
-						}
+
 						if(nx>=0 && nx <n && ny >= 0 && ny < m && grid[nx][ny] == 0){
 							q.offerLast(nx);
 							q.offerLast(ny);
 						}
-					}
-					if(flag){
-						break;
 					}
 				}
 				if(flag){
