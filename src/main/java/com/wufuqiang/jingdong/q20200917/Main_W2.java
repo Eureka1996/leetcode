@@ -44,6 +44,7 @@ public class Main_W2 {
 				LinkedList<Integer> q = new LinkedList<>();
 				q.offerLast(sx);
 				q.offerLast(sy);
+				grid[sx][sy] = 1;
 				boolean flag = false;
 
 				while(!q.isEmpty()){
@@ -56,10 +57,10 @@ public class Main_W2 {
 					for(int[] d:dir){
 						int nx = ox + d[0];
 						int ny = oy + d[1];
-
 						if(nx>=0 && nx <n && ny >= 0 && ny < m && grid[nx][ny] == 0){
 							q.offerLast(nx);
 							q.offerLast(ny);
+							grid[nx][ny] = 1;
 						}
 					}
 				}

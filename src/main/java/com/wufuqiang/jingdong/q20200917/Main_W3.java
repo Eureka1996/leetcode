@@ -44,6 +44,7 @@ public class Main_W3 {
 				LinkedList<Integer> q = new LinkedList<>();
 				q.offerLast(sx);
 				q.offerLast(sy);
+				grid[sx][sy] = 1;
 				boolean flag = false;
 
 				while(!q.isEmpty()){
@@ -59,6 +60,7 @@ public class Main_W3 {
 						if(nx>=0 && nx <n && ny >= 0 && ny < m && grid[nx][ny] == 0){
 							q.offerLast(nx);
 							q.offerLast(ny);
+							grid[nx][ny] = 1;
 						}
 					}
 				}
