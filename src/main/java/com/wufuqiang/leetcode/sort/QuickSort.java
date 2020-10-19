@@ -32,7 +32,7 @@ public class QuickSort {
     }
 
     public static void main(String[] args){
-        int a[] = { 1,2,3,4,5,49, 38, 65, 97, 76, 13, 27, 49 };
+        int a[] = { 1,2,3,4,5,49, 38, 65, 97, 3, 13, 27, 49 };
         quickSort(a,0,a.length-1);
         System.out.println(Arrays.toString(a));
     }
