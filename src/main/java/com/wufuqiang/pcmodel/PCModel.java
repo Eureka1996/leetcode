@@ -13,7 +13,7 @@ public class PCModel {
 	//存储中现有的数量
 	private static int count = 0;
 	//存储的总大小
-	private static int full = 10;
+	private static int full = 10000;
 	//锁
 	private Lock lock = new ReentrantLock();
 	//
