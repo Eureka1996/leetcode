@@ -32,11 +32,15 @@ public class MS16_25_LRUCache {
  * 4、HashMap<Integer,DoubleLinkNode> map，记录key、key对应的链表节点
  */
 class LRUCache {
-
+	//容量
 	public int capacity ;
+	//现有的数据个数
 	public int size;
+	//头哨兵节点
 	public DoubleLinkNode head;
+	//尾哨兵节点
 	public DoubleLinkNode tail;
+	//记录key和Node之间的映射关系
 	public Map<Integer, DoubleLinkNode> map;
 
 	public LRUCache(int capacity) {
