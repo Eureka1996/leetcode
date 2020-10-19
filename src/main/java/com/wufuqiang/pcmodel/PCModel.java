@@ -4,11 +4,19 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * 生产者和消费者模式
+ *
+ */
 public class PCModel {
 
+	//存储中现有的数量
 	private static int count = 0;
+	//存储的总大小
 	private static int full = 10;
+	//锁
 	private Lock lock = new ReentrantLock();
+	//
 	private final Condition notFull = lock.newCondition();
 	private final Condition notEmpty = lock.newCondition();
 
@@ -22,10 +30,15 @@ public class PCModel {
 //		new Thread(test.new Consumer()).start();
 	}
 
+	/**
+	 * 内部类，负责生产数据
+	 */
 	class Producter implements Runnable{
 		@Override
 		public void run() {
+			//持续生产
 			while(true){
+				//生产之前获取锁
 				lock.lock();
 				try{
 					while(count == full){
@@ -39,6 +52,7 @@ public class PCModel {
 				}catch(Exception e){
 
 				}finally {
+					//生产完成后释放锁
 					lock.unlock();
 				}
 				try {
