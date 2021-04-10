@@ -1,5 +1,7 @@
 package com.wufuqiang.leetcode;
 
+import java.util.Stack;
+
 /**
  * 简化路径
  * 化简unix的路径
@@ -7,7 +9,7 @@ package com.wufuqiang.leetcode;
 public class L71_SimplifyPath {
 	public static void main(String[] args) {
 		L71_SimplifyPath l71 = new L71_SimplifyPath();
-		String result = l71.simplifyPath2("/a//b////c/d//././/..");
+		String result = l71.simplifyPath3("/a//b////c/d//././/..");
 		System.out.println(result);
 	}
 	public String simplifyPath(String path) {
@@ -67,5 +69,26 @@ public class L71_SimplifyPath {
 		}
 
 		return sb.toString();
+	}
+
+	public String simplifyPath3(String path) {
+		StringBuffer sb = new StringBuffer();
+		//将字符串拆分
+		String[] pathSplited = path.split("/");
+		Stack<String> stack = new Stack<String>();
+
+		for (String fileName : pathSplited) {
+			if("..".equals(fileName)){
+				if(stack.size()>0) stack.pop();
+			}else if(".".equals(fileName) || "".equals(fileName)){
+
+			}else{
+				stack.push(fileName);
+			}
+		}
+
+		String join = String.join("/", stack);
+
+		return "/"+join;
 	}
 }
