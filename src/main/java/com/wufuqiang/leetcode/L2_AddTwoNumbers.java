@@ -2,6 +2,9 @@ package com.wufuqiang.leetcode;
 
 import com.wufuqiang.leetcode.entries.ListNode;
 
+/**
+ * 两数相加
+ */
 public class L2_AddTwoNumbers {
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 		ListNode result = new ListNode(0);
