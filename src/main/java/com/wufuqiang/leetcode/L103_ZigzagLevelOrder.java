@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * 二叉树的之字形层序遍历
+ * 二叉树的锯齿形层次遍历
+ */
 public class L103_ZigzagLevelOrder {
 
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
@@ -66,4 +70,48 @@ public class L103_ZigzagLevelOrder {
         }
         return result;
     }
+
+
+    public List<List<Integer>> zigzagLevelOrder01(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if(root == null) return res;
+        LinkedList<TreeNode> q = new LinkedList<TreeNode>();
+        boolean isLeft = true;
+        q.offerFirst(root);
+        while(!q.isEmpty()){
+            int levelLen = q.size();
+            TreeNode tmp = null;
+            List<Integer> resTmp = new ArrayList<>();
+            while(levelLen > 0){
+                if(isLeft){
+                    tmp = q.pollFirst();
+                    resTmp.add(tmp.val);
+                    if(tmp.left != null){
+                        q.offerLast(tmp.left);
+                    }
+                    if(tmp.right != null){
+                        q.offerLast(tmp.right);
+                    }
+                }else{
+                    tmp = q.pollLast();
+                    resTmp.add(tmp.val);
+                    if(tmp.right != null){
+                        q.offerFirst(tmp.right);
+                    }
+                    if(tmp.left != null){
+                        q.offerFirst(tmp.left);
+                    }
+
+                }
+
+                levelLen--;
+            }
+            res.add(resTmp);
+            isLeft =  !isLeft;
+        }
+        return res;
+    }
+
+
+
 }
