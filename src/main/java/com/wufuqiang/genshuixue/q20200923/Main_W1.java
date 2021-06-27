@@ -6,6 +6,22 @@ public class Main_W1 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
+		List<List<String>> count = new ArrayList<>();
+		List<String> n1 = new ArrayList<>();
+		n1.add("name1");
+		n1.add("e1");
+		n1.add("e2");
+
+		List<String> n2 = new ArrayList<>();
+		n2.add("name1");
+		n2.add("e3");
+		n2.add("e4");
+
+		count.add(n1);
+		count.add(n2);
+
+		List<List<String>> lists = mergeAccount(count);
+		System.out.println(lists);
 
 		sc.close();
 	}
@@ -47,6 +63,7 @@ public class Main_W1 {
 			List<String> value = entry.getValue();
 			Collections.sort(value);
 			value.add(0,key.split(",")[0]);
+			res.add(value);
 		}
 
 		return res;

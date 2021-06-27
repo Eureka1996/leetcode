@@ -36,4 +36,33 @@ public class L872_LeafSimilar {
         }
         return true;
     }
+
+    public boolean leafSimilar2(TreeNode root1,TreeNode root2){
+        List<Integer> leafValueList1 = new ArrayList<>();
+        if(root1 != null){
+            dfs(root1,leafValueList1);
+        }
+
+        List<Integer> leafValueList2 = new ArrayList<>();
+        if(root2 != null){
+            dfs(root2,leafValueList2);
+        }
+
+        return leafValueList1.equals(leafValueList2);
+    }
+
+    public void dfs(TreeNode root,List<Integer> leafValueList){
+        if(root.left == null && root.right == null){
+            leafValueList.add(root.val);
+        }else{
+            if(root.left != null){
+                dfs(root.left,leafValueList);
+            }
+            if(root.right != null){
+                dfs(root.right,leafValueList);
+            }
+        }
+    }
+
+
 }

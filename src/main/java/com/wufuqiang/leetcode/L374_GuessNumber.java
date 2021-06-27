@@ -10,7 +10,7 @@ public class L374_GuessNumber {
     }
 }
 
-public class Solution extends GuessGame {
+class SolutionL374 extends GuessGame {
     public int guessNumber(int n) {
         return guessNumber(1,n);
     }
@@ -25,5 +25,9 @@ public class Solution extends GuessGame {
         }else{
             return guessNumber(mid+1,high);
         }
+    }
+
+    private int guess(int mid) {
+        return 0;
     }
 }

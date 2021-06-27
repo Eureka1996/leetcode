@@ -10,7 +10,7 @@ public class L278_FirstBadVersion {
     }
 }
 
-public class Solution extends VersionControl {
+class SolutionL278 extends VersionControl {
     public int firstBadVersion(int n) {
         return firstBadVersion(1,n);
     }
@@ -23,5 +23,9 @@ public class Solution extends VersionControl {
         }else{
             return firstBadVersion(mid+1,hight);
         }
+    }
+
+    private boolean isBadVersion(int mid) {
+        return false;
     }
 }

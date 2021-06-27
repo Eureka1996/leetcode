@@ -1,0 +1,55 @@
+{
+  "job": {
+    "content": [
+      {
+        "reader": {
+          "name": "elasticsearchreader",
+          "parameter": {
+            "column": [
+              "_id",
+              "field1",
+              "field2"
+            ],
+            "connection": [
+              "ns013:29300"
+            ],
+            "index": "la-doc-live_attendance_lesson-2019.09.15",
+            "pageSize": 100,
+            "type": ""
+          }
+        },
+        "writer": {
+          "name": "hdfswriter",
+          "parameter": {
+            "column": [
+              {
+                "name": "col1",
+                "type": "TINYINT"
+              },
+              {
+                "name": "col2",
+                "type": "SMALLINT"
+              },
+              {
+                "name": "col3",
+                "type": "INT"
+              }
+            ],
+            "compress": "",
+            "defaultFS": "",
+            "fieldDelimiter": "",
+            "fileName": "",
+            "fileType": "",
+            "path": "",
+            "writeMode": ""
+          }
+        }
+      }
+    ],
+    "setting": {
+      "speed": {
+        "channel": ""
+      }
+    }
+  }
+}

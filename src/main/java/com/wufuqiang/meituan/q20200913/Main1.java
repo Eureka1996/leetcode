@@ -2,6 +2,9 @@ package com.wufuqiang.meituan.q20200913;
 
 import java.util.Scanner;
 
+/**
+ * 矩阵翻转
+ */
 public class Main1 {
 	private static int[] nums = null;
 	private static int res = -1;

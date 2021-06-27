@@ -14,4 +14,17 @@ public class MS55_1_MaxDepth {
 		}
 		return Math.max(left,right);
 	}
+
+	public int maxDepth2(TreeNode root){
+		if(root == null){
+			return 0;
+		}
+		int leftDepth = maxDepth2(root.left);
+		int rightDepth = maxDepth2(root.right);
+		if(leftDepth>rightDepth){
+			return leftDepth+1;
+		}else{
+			return rightDepth+1;
+		}
+	}
 }
