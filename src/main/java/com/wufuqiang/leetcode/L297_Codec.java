@@ -3,6 +3,7 @@ package com.wufuqiang.leetcode;
 import com.wufuqiang.leetcode.entries.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -154,6 +155,116 @@ public class L297_Codec {
 			System.out.println();
 			index+=1;
 		}
+
+		return root;
+	}
+}
+
+class Codec {
+	public static void main(String[] args) {
+		TreeNode t1 = new TreeNode(1);
+		TreeNode t2 = new TreeNode(2);
+		TreeNode t3 = new TreeNode(3);
+		TreeNode t4 = new TreeNode(4);
+		TreeNode t5 = new TreeNode(5);
+		t1.left = t2;
+		t1.right = t3;
+		t3.left = t4;
+		t3.right = t5;
+		Codec codec = new Codec();
+		final String serialize = codec.serialize(t1);
+		System.out.println(serialize);
+
+	}
+	
+	
+	public String serialize(TreeNode root) {
+		return rserialize(root, "");
+	}
+
+	public TreeNode deserialize(String data) {
+		String[] dataArray = data.split(",");
+		List<String> dataList = new LinkedList<String>(Arrays.asList(dataArray));
+		return rdeserialize(dataList);
+	}
+
+	public String rserialize(TreeNode root, String str) {
+		if (root == null) {
+			str += "None,";
+		} else {
+			str += str.valueOf(root.val) + ",";
+			str = rserialize(root.left, str);
+			str = rserialize(root.right, str);
+		}
+		return str;
+	}
+
+	public TreeNode rdeserialize(List<String> dataList) {
+		if (dataList.get(0).equals("None")) {
+			dataList.remove(0);
+			return null;
+		}
+
+		TreeNode root = new TreeNode(Integer.valueOf(dataList.get(0)));
+		dataList.remove(0);
+		root.left = rdeserialize(dataList);
+		root.right = rdeserialize(dataList);
+
+		return root;
+	}
+}
+
+class Codec2 {
+	
+	public static void main(String[] args) {
+		TreeNode t1 = new TreeNode(1);
+		TreeNode t2 = new TreeNode(2);
+		TreeNode t3 = new TreeNode(3);
+		TreeNode t4 = new TreeNode(4);
+		TreeNode t5 = new TreeNode(5);
+		t1.left = t2;
+		t1.right = t3;
+		t3.left = t4;
+		t3.right = t5;
+		Codec2 codec = new Codec2();
+		final String serialize = codec.serialize(t1);
+		System.out.println(serialize);
+
+	}
+
+
+	public String serialize(TreeNode root) {
+		return rserialize(root, "");
+	}
+
+	public TreeNode deserialize(String data) {
+		String[] dataArray = data.split(",");
+		List<String> dataList = new LinkedList<String>(Arrays.asList(dataArray));
+		return rdeserialize(dataList);
+	}
+
+	public String rserialize(TreeNode root, String str) {
+		if (root == null) {
+			str += "None,";
+		} else {
+			str += str.valueOf(root.val) + ",";
+			// 连接上了左子树
+			str = rserialize(root.left, str);
+			str = rserialize(root.right, str);
+		}
+		return str;
+	}
+
+	public TreeNode rdeserialize(List<String> dataList) {
+		if (dataList.get(0).equals("None")) {
+			dataList.remove(0);
+			return null;
+		}
+
+		TreeNode root = new TreeNode(Integer.valueOf(dataList.get(0)));
+		dataList.remove(0);
+		root.left = rdeserialize(dataList);
+		root.right = rdeserialize(dataList);
 
 		return root;
 	}

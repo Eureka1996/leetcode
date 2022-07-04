@@ -16,21 +16,25 @@ public class L23_MergeKLists {
 		for(ListNode list:lists){
 			if(list != null) pq.offer(list);
 		}
+		// 最终的链表，合并后链表，此变量不能变，用于最后方法的返回
 		ListNode result = new ListNode(0);
+		// 一直后移的节点
 		ListNode tail = result;
 		ListNode minNode = null;
+		// 优先队列如果空了，则所有的链表已经遍历完成
 		while (!pq.isEmpty()){
 			//弹出优先队列中最小的那个节点
 			minNode = pq.poll();
+			// 进行合并
 			tail.next = minNode;
 			tail = tail.next;
+			// 链表是否还有下一个节点
 			minNode = minNode.next;
 			//下一个节点如果不为空，则推入到优先队列中
 			if(minNode != null){
 				pq.offer(minNode);
 			}
 		}
-
 		return result.next;
 	}
 }
